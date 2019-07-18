@@ -10,21 +10,7 @@ export function fetchWeather() {
          })
          .catch(error => console.log(error))
          .then(weather => {
-            debugger
             return dispatch({ type: "FETCH_WEATHER", weather})
          })
    }
 }
-
-
-// const getClients = () => {
-//    fetch(`/clients.json`)
-//       .then(resp => resp.json())
-//       .then(clients => {
-//          $('#app-container').html('')
-//          const sortedClients = clients.sort(function (a, b) {
-//             return a.name.localeCompare(b.name);
-//             // if(a.name < b.name) { return -1; }
-//             // if(a.name > b.name) { return 1; }
-//             // return 0
-//          }); 

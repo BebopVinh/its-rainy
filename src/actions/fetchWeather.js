@@ -1,11 +1,30 @@
 export function fetchWeather() {
    return dispatch => {
       dispatch({ type: "LOADING_WEATHER" })
-      const proxyurl = "https://cors-anywhere.herokuapp.com/"
-      const url = "https://api.darksky.net/forecast/12b162f285f6f8d240443a58e0d1819e/33.7701, 118.1937"
-      return fetch(proxyurl + url).then(resp => resp.json())
+      const url = "http://localhost:3000/weather"
+      debugger
+      return fetch(url)
+         .then(resp => {
+            console.log(resp)
+            return resp.json()
+         })
+         .catch(error => console.log(error))
          .then(weather => {
+            debugger
             return dispatch({ type: "FETCH_WEATHER", weather})
          })
    }
 }
+
+
+// const getClients = () => {
+//    fetch(`/clients.json`)
+//       .then(resp => resp.json())
+//       .then(clients => {
+//          $('#app-container').html('')
+//          const sortedClients = clients.sort(function (a, b) {
+//             return a.name.localeCompare(b.name);
+//             // if(a.name < b.name) { return -1; }
+//             // if(a.name > b.name) { return 1; }
+//             // return 0
+//          }); 

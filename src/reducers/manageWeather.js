@@ -5,9 +5,8 @@ export default function manageWeather (state = {}, action) {
          console.log("Loading weather")
 
       case "FETCH_WEATHER":
-         console.log(action)
          let x = {...state, weather: action.weather}
-         console.log(x)
+         debugger
          return x
 
       default:
